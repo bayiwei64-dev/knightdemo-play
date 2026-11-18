@@ -8,8 +8,8 @@
   <meta name="color-scheme" content="dark">
   <title>KnightDemo · 浏览器试玩与实机演示</title>
   <link rel="icon" href="media/mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="site.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="site.css?v=2">
+  <script src="site.js?v=2" defer></script>
 </head>
 <body>
   <a class="skip" href="#play">跳到试玩</a>
@@ -55,6 +55,7 @@
               <button id="start" class="primary" type="button"><span aria-hidden="true">▶</span> 开始试玩</button>
               <p id="game-hint" class="game-hint">建议使用电脑浏览器和键盘。</p>
               <progress id="load-progress" max="1" value="0" aria-label="游戏加载进度" hidden></progress>
+              <button id="cancel-load" class="cover-action" type="button" hidden>取消下载</button>
             </div>
           </div>
         </div>
@@ -91,10 +92,11 @@
         </div>
         <a class="play-again" href="#play">↑ 返回试玩</a>
       </div>
-      <video id="reel" controls preload="none" playsinline poster="media/reel.webp" src="media/knightdemo-demo.mp4" aria-label="KnightDemo 56 秒实机演示">
-        此浏览器无法播放视频。可<a href="media/knightdemo-demo.mp4">直接打开 MP4</a>。
+      <video id="reel" controls preload="none" playsinline poster="media/reel.webp" src="media/knightdemo-demo.mp4?v=2" aria-label="KnightDemo 56 秒实机演示">
+        此浏览器无法播放视频。可<a href="media/knightdemo-demo.mp4?v=2">直接打开 MP4</a>。
       </video>
-      <p class="reel-caption">主菜单与设置 → 黄蜂战斗 → 落败回到长椅 → 再次挑战获胜</p>
+      <p class="reel-caption"><span>主菜单与设置 → 黄蜂战斗 → 落败回到长椅 → 再次挑战获胜</span><a href="media/knightdemo-demo.mp4?v=2" target="_blank" rel="noopener">直接打开 MP4 ↗</a></p>
+      <div class="reel-feedback"><p id="reel-status" role="status" hidden></p><button id="reel-retry" type="button" class="bar-button" hidden>重试播放</button></div>
     </section>
   </main>
 

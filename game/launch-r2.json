@@ -1,0 +1,140 @@
+{
+  "loaderUrl": "Build/KnightDemo.loader.js",
+  "frameworkUrl": "Build/KnightDemo.framework.js.unityweb",
+  "dataUrl": "Build/KnightDemo.data.unityweb",
+  "codeUrl": "Build/KnightDemo.wasm.unityweb",
+  "streamingAssetsUrl": "StreamingAssets",
+  "bytes": 65680133,
+  "dataParts": [
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.00.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.01.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.02.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.03.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.04.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.05.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.06.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.07.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.08.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.09.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.10.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.11.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.12.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.13.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.14.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.15.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.16.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.17.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.18.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.19.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.20.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.21.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.22.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.23.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.24.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.25.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.26.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.data.unityweb.27.bin",
+      "bytes": 1004592
+    }
+  ],
+  "codeParts": [
+    {
+      "path": "Build/r2/KnightDemo.wasm.unityweb.00.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.wasm.unityweb.01.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.wasm.unityweb.02.bin",
+      "bytes": 2097152
+    },
+    {
+      "path": "Build/r2/KnightDemo.wasm.unityweb.03.bin",
+      "bytes": 1569786
+    }
+  ]
+}
