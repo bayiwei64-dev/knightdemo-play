@@ -81,14 +81,16 @@ kbd { font: 12px/1.6 "Segoe UI", "Microsoft YaHei", sans-serif; display: inline-
 .reel-link small { color: #becad2; font-size: 11px; display: block; }
 .reel-time { color: var(--accent); font: 13px var(--heading); }
 .reel { margin: 72px 0 54px; padding-top: 8px; scroll-margin-top: 14px; }
-.reel-heading { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 18px; }
+.reel-heading { max-width: 1030px; display: flex; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 18px; }
 .reel h2 { font-size: clamp(23px, 3vw, 35px); margin: 3px 0 0; line-height: 1.22; }
 .play-again { color: #c8d9dc; font-size: 13px; text-decoration: none; }
 video { width: 100%; max-width: 1030px; aspect-ratio: 16 / 9; display: block; border: 1px solid var(--line); border-radius: 11px; background: #070b12; }
 .reel-caption { color: var(--muted); margin: 13px 0 0; font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; }
 .reel-caption a { color: var(--accent); text-underline-offset: 3px; }
-.reel-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; color: #e2e9ed; font-size: 13px; }
-.reel-feedback p, .reel-feedback button { margin: 8px 0 0; }
+.reel-actions { flex: 0 0 auto; display: flex; align-items: end; justify-content: flex-end; flex-wrap: wrap; gap: 7px 14px; }
+.reel-play { min-height: 36px; padding: 6px 13px; border: 1px solid #79aaa4; border-radius: 6px; color: var(--accent); background: #1c2a33; font-size: 13px; font-weight: 650; cursor: pointer; }
+.reel-play:hover { background: #263c44; }
+.reel-feedback { margin: -5px 0 11px; color: #e2e9ed; font-size: 13px; }
 .credits { border-top: 1px solid var(--line); display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 3px 25px; padding: 18px 0 30px; }
 .credits span { color: #e0e7ee; font: 640 21px var(--heading); }
 .credits p { color: var(--muted); margin: 0; font-size: 12px; }
@@ -121,4 +123,5 @@ video { width: 100%; max-width: 1030px; aspect-ratio: 16 / 9; display: block; bo
   .primary { padding: 9px 15px; min-width: 150px; }
   .controls dt, .controls dd { font-size: 12px; }
 }
+@media (max-width: 540px) { .reel-actions { flex-direction: column; align-items: flex-end; } }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

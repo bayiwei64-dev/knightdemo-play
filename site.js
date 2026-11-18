@@ -276,19 +276,24 @@ fullscreen.addEventListener("click", () => {
 });
 window.addEventListener("knightdemo:exit", () => setTimeout(stop, 0));
 
+const reelPlay = get("reel-play");
 let reelTimer;
-const reelRetry = get("reel-retry");
-function setReelStatus(message = "", offerRetry = false) {
+let offerRetry = false;
+function refreshPlayLabel() {
+  reelPlay.textContent = offerRetry ? "重试播放" : reel.paused || reel.ended ? "播放视频" : "暂停视频";
+}
+function setReelStatus(message = "", retry = false) {
   reelStatus.textContent = message;
   reelStatus.hidden = !message;
-  reelRetry.hidden = !offerRetry;
+  offerRetry = retry;
+  refreshPlayLabel();
 }
 function clearReelTimer() {
   clearTimeout(reelTimer);
   reelTimer = undefined;
 }
 function waitForVideo(message) {
-  if (reelTimer || !reelRetry.hidden) return;
+  if (reelTimer || offerRetry) return;
   setReelStatus(message);
   reelTimer = setTimeout(() => {
     clearReelTimer();
@@ -299,10 +304,12 @@ function showVideoError(message) {
   clearReelTimer();
   setReelStatus(message, true);
 }
-function playReel(restart) {
-  if (restart || reel.error) reel.load();
+function playReel() {
+  const retry = offerRetry || reel.error;
+  if (!retry && !reel.paused && !reel.ended) return;
   clearReelTimer();
   setReelStatus();
+  if (retry) reel.load();
   waitForVideo("正在加载视频…");
   reel.play().catch(error => {
     if (error.name === "AbortError") return;
@@ -311,16 +318,19 @@ function playReel(restart) {
       : "视频未能加载，可重试播放或直接打开 MP4。");
   });
 }
-get("watch-link").addEventListener("click", () => playReel(!reelRetry.hidden));
-reelRetry.addEventListener("click", () => playReel(true));
-function syncReelAudio() {
+get("watch-link").addEventListener("click", playReel);
+reelPlay.addEventListener("click", () => {
+  if (offerRetry || reel.paused || reel.ended) playReel();
+  else reel.pause();
+});
+for (const event of ["play", "pause", "ended"]) reel.addEventListener(event, () => {
+  refreshPlayLabel();
   if (state === "playing" && instance)
     instance.SendMessage("KnightWebRuntime", "SetReelPlaying", reel.paused || reel.ended ? "0" : "1");
-}
-for (const event of ["play", "pause", "ended"]) reel.addEventListener(event, syncReelAudio);
+});
 reel.addEventListener("playing", () => { clearReelTimer(); setReelStatus(); });
 reel.addEventListener("pause", () => {
-  if (reel.paused && !reel.error && reelRetry.hidden) { clearReelTimer(); setReelStatus(); }
+  if (reel.paused && !reel.error && !offerRetry) { clearReelTimer(); setReelStatus(); }
 });
 reel.addEventListener("waiting", () => { if (!reel.paused) waitForVideo("正在缓冲视频…"); });
 reel.addEventListener("error", () => showVideoError("视频未能加载，可重试播放或直接打开 MP4。"));
