@@ -1,0 +1,120 @@
+:root {
+  color: #f4f1ec;
+  background: #0c1018;
+  color-scheme: dark;
+  --text: #f4f1ec;
+  --muted: #aeb9c8;
+  --accent: #c6ede8;
+  --line: #323c4b;
+  --heading: Bahnschrift, "Segoe UI", "Microsoft YaHei", sans-serif;
+  font: 15px/1.6 "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; min-width: 300px; background: radial-gradient(ellipse 66% 48rem at 64% 8%, #233039 0%, #131b26 47%, #0c1018 92%); }
+a { color: inherit; text-underline-offset: 4px; }
+button { color: inherit; font: inherit; }
+a:focus-visible, button:focus-visible, video:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.skip { position: absolute; top: -100px; left: 24px; z-index: 6; background: var(--accent); color: #0c1720; padding: 8px 14px; }
+.skip:focus { top: 8px; }
+.container { width: min(1272px, calc(100% - 96px)); margin-inline: auto; }
+.topbar { border-bottom: 1px solid #29313d; background: #0d121bc4; }
+.mast { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.signature { display: inline-flex; align-items: center; gap: 10px; font: 640 23px var(--heading); text-decoration: none; }
+.signature img { display: block; }
+nav { display: flex; gap: clamp(18px, 3vw, 40px); font-size: 14px; }
+nav a { text-decoration: none; }
+nav a:hover, .play-again:hover { text-decoration: underline; }
+nav span { margin-left: 5px; color: var(--muted); font: 13px var(--heading); }
+.hero { display: flex; justify-content: space-between; align-items: end; gap: 35px; padding: 42px 0 27px; }
+.eyebrow { margin: 0; font-size: 12px; letter-spacing: .12em; color: var(--accent); }
+.eyebrow i { display: inline-block; width: 16px; height: 1px; vertical-align: .3em; margin-right: 8px; background: currentColor; }
+h1 { margin: 5px 0 10px; font: 650 clamp(47px, 6vw, 84px)/.99 var(--heading); letter-spacing: -.038em; }
+.lead { margin: 0; color: #d3dae4; font-size: 16px; }
+.kind { margin: 0 0 1px; text-align: right; letter-spacing: .04em; white-space: nowrap; }
+.kind span { color: var(--muted); font-size: 13px; }
+.demo-layout { display: grid; grid-template-columns: minmax(0, 1fr) clamp(220px, 20vw, 262px); gap: 20px; align-items: start; }
+.player, .rail { min-width: 0; }
+.player { border: 1px solid var(--line); border-radius: 13px; background: #0b0e16; box-shadow: 0 18px 44px #05081075; overflow: hidden; scroll-margin-top: 18px; }
+.player:has(canvas:focus-visible) { border-color: #8baab0; }
+.player-bar { display: flex; align-items: center; min-height: 48px; padding: 0 15px; gap: 10px; justify-content: space-between; background: #141b26; }
+.player-ident, .player-actions { display: inline-flex; align-items: center; gap: 9px; color: #dce4ed; font-size: 13px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #a8d9cf; flex: none; }
+.player-actions { color: var(--muted); }
+.bar-button { padding: 3px 9px; background: transparent; border: 1px solid #3d4858; border-radius: 5px; font-size: 12px; cursor: pointer; }
+.bar-button:hover { background: #263441; color: #fff; }
+.stage { width: 100%; aspect-ratio: 16 / 9; position: relative; background: #090c14; }
+canvas { display: block; width: 100%; height: 100%; background: #090c14; outline: none; }
+.game-cover { position: absolute; inset: 0; overflow: hidden; display: grid; place-items: center; text-align: center; isolation: isolate; }
+.stage-art { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; z-index: -3; }
+.game-cover::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background: radial-gradient(ellipse at 51% 49%, #0b1521cc 0%, #0c172279 61%, #070c1561 100%), linear-gradient(0deg,#070c17a0,transparent 42%);
+}
+.start-card { padding: 14px 18px; width: min(450px, 100%); }
+.cover-kicker { color: #dfebeb; font-size: 13px; letter-spacing: .14em; margin: 0 0 12px; text-shadow: 0 2px 6px #08101d; }
+.primary {
+  min-width: 176px; padding: 12px 23px; border: 1px solid #d6f7f1; border-radius: 7px;
+  background: var(--accent); color: #12242a; box-shadow: 0 6px 18px #070e19b8;
+  font-weight: 700; cursor: pointer; transition: background .16s ease, transform .16s ease;
+}
+.primary:hover:not(:disabled) { background: #e1fbf2; transform: translateY(-1px); }
+.primary:disabled { cursor: wait; opacity: .7; }
+.primary span { margin-inline-end: 5px; font-size: 12px; }
+.game-hint { color: #e2e9ed; margin: 12px 0 0; font-size: 13px; text-shadow: 0 2px 6px #070b13; }
+progress { height: 7px; width: 158px; margin: 14px auto 0; accent-color: var(--accent); }
+.rail { display: grid; gap: 14px; }
+.controls { padding: 15px 17px 14px; border: 1px solid var(--line); border-radius: 13px; background: #151d29d9; }
+.controls h2 { font-size: 16px; margin: 0 0 8px; }
+.controls dl { margin: 0; display: grid; }
+.controls dl div { min-height: 36px; display: flex; gap: 6px; align-items: center; justify-content: space-between; border-bottom: 1px solid #323b4882; }
+.controls dl div:last-child { border-bottom: 0; }
+.controls dt { color: #e2e7ed; font-size: 13px; }
+.controls dd { margin: 0; white-space: nowrap; display: flex; gap: 5px; }
+kbd { font: 12px/1.6 "Segoe UI", "Microsoft YaHei", sans-serif; display: inline-block; padding: 0 6px 1px; min-width: 22px; color: #e9eff6; border: 1px solid #4a5a70; border-bottom-width: 2px; border-radius: 4px; background: #1b2432; text-align: center; }
+.controls p { color: var(--muted); margin: 10px 0 0; font-size: 12px; }
+.reel-link { background: #182630; border: 1px solid #3a535d; border-radius: 9px; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 9px; align-items: center; padding: 13px 11px; text-decoration: none; }
+.reel-link:hover { background: #243643; }
+.reel-icon { color: var(--accent); font-size: 12px; width: 27px; height: 27px; border: 1px solid #6f949e; border-radius: 50%; display: grid; place-items: center; }
+.reel-link strong { color: #e3f6f2; font-size: 14px; display: block; }
+.reel-link small { color: #becad2; font-size: 11px; display: block; }
+.reel-time { color: var(--accent); font: 13px var(--heading); }
+.reel { margin: 72px 0 54px; padding-top: 8px; scroll-margin-top: 14px; }
+.reel-heading { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 18px; }
+.reel h2 { font-size: clamp(23px, 3vw, 35px); margin: 3px 0 0; line-height: 1.22; }
+.play-again { color: #c8d9dc; font-size: 13px; text-decoration: none; }
+video { width: 100%; max-width: 1030px; aspect-ratio: 16 / 9; display: block; border: 1px solid var(--line); border-radius: 11px; background: #070b12; }
+.reel-caption { color: var(--muted); margin: 13px 0 0; font-size: 13px; }
+.credits { border-top: 1px solid var(--line); display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 3px 25px; padding: 18px 0 30px; }
+.credits span { color: #e0e7ee; font: 640 21px var(--heading); }
+.credits p { color: var(--muted); margin: 0; font-size: 12px; }
+@media (max-width: 960px) {
+  .container { width: calc(100% - 44px); }
+  .demo-layout { grid-template-columns: minmax(0, 1fr) 206px; gap: 13px; }
+  .hero { padding-top: 33px; }
+}
+@media (max-width: 730px) {
+  .container { width: calc(100% - 32px); }
+  .mast { min-height: 56px; }
+  .hero { padding: 28px 0 18px; display: block; }
+  .lead { font-size: 14px; }
+  .kind { display: none; }
+  .demo-layout { grid-template-columns: 1fr; }
+  .controls { order: 2; }
+  .controls dl { grid-template-columns: 1fr 1fr; gap: 0 13px; }
+  .controls dl div { border: 0; }
+  .reel { margin-top: 38px; }
+}
+@media (max-width: 430px) {
+  .signature { font-size: 18px; gap: 6px; }
+  .signature img { width: 22px; height: 22px; }
+  nav { gap: 13px; font-size: 12px; }
+  nav span { display: none; }
+  .mast { gap: 10px; }
+  .lead { max-width: 23em; }
+  .game-hint { margin-top: 8px; }
+  .cover-kicker { margin-bottom: 8px; }
+  .primary { padding: 9px 15px; min-width: 150px; }
+  .controls dt, .controls dd { font-size: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

@@ -1,0 +1,8 @@
+{
+  "loaderUrl": "Build/KnightDemo.loader.js",
+  "frameworkUrl": "Build/KnightDemo.framework.js.unityweb",
+  "dataUrl": "Build/KnightDemo.data.unityweb",
+  "codeUrl": "Build/KnightDemo.wasm.unityweb",
+  "streamingAssetsUrl": "StreamingAssets",
+  "bytes": 65680133
+}

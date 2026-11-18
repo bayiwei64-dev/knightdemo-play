@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KnightDemo：Unity 2D 动作客户端练习。浏览器试玩与 56 秒 Windows 实机演示。">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="dark">
+  <title>KnightDemo · 浏览器试玩与实机演示</title>
+  <link rel="icon" href="media/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#play">跳到试玩</a>
+  <header class="topbar">
+    <div class="container mast">
+      <a class="signature" href="./" aria-label="KnightDemo 首页">
+        <img src="media/mark.svg" width="28" height="28" alt="">
+        <span>KnightDemo</span>
+      </a>
+      <nav aria-label="作品导航">
+        <a href="#play">浏览器试玩</a>
+        <a href="#video">实机视频 <span>0:56</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow"><i></i> Unity 2D / C#</p>
+        <h1 id="title">KnightDemo</h1>
+        <p class="lead">从长椅出发，穿过竖井，挑战二见黄蜂女。</p>
+      </div>
+      <p class="kind">2D 动作客户端<br><span>非官方学习复刻</span></p>
+    </section>
+
+    <div class="demo-layout">
+      <section id="play" class="player" aria-label="KnightDemo 网页试玩">
+        <div class="player-bar">
+          <div class="player-ident"><i class="status-dot" aria-hidden="true"></i><span id="game-status" role="status">准备就绪</span></div>
+          <div class="player-actions">
+            <button id="fullscreen" class="bar-button" type="button" hidden>全屏</button>
+            <button id="leave" class="bar-button" type="button" hidden>结束试玩</button>
+            <span id="desktop-label">电脑键鼠</span>
+          </div>
+        </div>
+        <div class="stage" id="stage">
+          <canvas id="game" width="1280" height="720" tabindex="0" aria-label="KnightDemo 游戏画面" hidden></canvas>
+          <div class="game-cover" id="game-cover">
+            <img class="stage-art" src="media/arena.webp" alt="" fetchpriority="high" width="1600" height="900">
+            <div class="start-card">
+              <p class="cover-kicker" id="cover-kicker">王国边缘 · 二见黄蜂女</p>
+              <button id="start" class="primary" type="button"><span aria-hidden="true">▶</span> 开始试玩</button>
+              <p id="game-hint" class="game-hint">建议使用电脑浏览器和键盘。</p>
+              <progress id="load-progress" max="1" value="0" aria-label="游戏加载进度" hidden></progress>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="rail" aria-label="试玩操作与视频入口">
+        <section class="controls">
+          <h2>键位</h2>
+          <dl>
+            <div><dt>移动</dt><dd><kbd aria-label="左方向键">←</kbd><kbd aria-label="右方向键">→</kbd></dd></div>
+            <div><dt>跳跃</dt><dd><kbd>Space</kbd></dd></div>
+            <div><dt>挥钉</dt><dd><kbd>Enter</kbd></dd></div>
+            <div><dt>冲刺</dt><dd><kbd>左 Shift</kbd></dd></div>
+            <div><dt>聚集／施法</dt><dd><kbd>Q</kbd></dd></div>
+            <div><dt>快速施法</dt><dd><kbd>F</kbd></dd></div>
+            <div><dt>超级冲刺</dt><dd><kbd>S</kbd></dd></div>
+            <div><dt>暂停</dt><dd><kbd>Esc</kbd></dd></div>
+          </dl>
+          <p>长按 Q 聚集；按住 S 蓄力，松手冲刺。可在游戏内改键。</p>
+        </section>
+        <a href="#video" class="reel-link" id="watch-link">
+          <span class="reel-icon" aria-hidden="true">▶</span>
+          <span><strong>观看实机演示</strong><small>从落败回椅到击败黄蜂女</small></span>
+          <span class="reel-time">0:56</span>
+        </a>
+      </aside>
+    </div>
+
+    <section id="video" class="reel" aria-labelledby="video-title">
+      <div class="reel-heading">
+        <div>
+          <p class="eyebrow"><i></i> Windows 实机录制 · 56 秒</p>
+          <h2 id="video-title">实机演示</h2>
+        </div>
+        <a class="play-again" href="#play">↑ 返回试玩</a>
+      </div>
+      <video id="reel" controls preload="none" playsinline poster="media/reel.webp" src="media/knightdemo-demo.mp4" aria-label="KnightDemo 56 秒实机演示">
+        此浏览器无法播放视频。可<a href="media/knightdemo-demo.mp4">直接打开 MP4</a>。
+      </video>
+      <p class="reel-caption">主菜单与设置 → 黄蜂战斗 → 落败回到长椅 → 再次挑战获胜</p>
+    </section>
+  </main>
+
+  <footer class="container credits">
+    <span>KnightDemo</span>
+    <p>非官方学习复刻；画面与音频含 Team Cherry《空洞骑士》素材。部分实现使用 AI 辅助。</p>
+  </footer>
+</body>
+</html>
